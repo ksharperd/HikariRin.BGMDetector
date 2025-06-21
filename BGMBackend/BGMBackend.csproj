@@ -1,0 +1,94 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PublishAot>true</PublishAot>
+    <NativeLib>Static</NativeLib>
+    <UseSystemResourceKeys>false</UseSystemResourceKeys>
+    <Platforms>x64;x86</Platforms>
+    <IlcInstructionSet>x86-64-v3</IlcInstructionSet>
+    <UseSizeOptimizedLinq>false</UseSizeOptimizedLinq>
+    <Win32Resource>$(ProjectDir)res\Resources.res</Win32Resource>
+    <CETCompat>false</CETCompat>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(RuntimeIdentifier) == 'win-x64'">
+    <Platform>x64</Platform>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(RuntimeIdentifier) == 'win-x86'">
+    <Platform>x86</Platform>
+    <DefineConstants>BGMBACKEND_LEGACY_LYRIC_PARSER;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Configuration) == 'Release'">
+    <DefineConstants>BGMBACKEND_RELEASE;$(DefineConstants)</DefineConstants>
+    <DebuggerSupport>false</DebuggerSupport>
+    <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
+    <StackTraceSupport>false</StackTraceSupport>
+    <MetricsSupport>false</MetricsSupport>
+    <EventSourceSupport>false</EventSourceSupport>
+    <ControlFlowGuard></ControlFlowGuard>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(Platform) == 'x64'">
+    <DefineConstants>TARGET_64BIT;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MSBuild_Logs\**" />
+    <EmbeddedResource Remove="MSBuild_Logs\**" />
+    <None Remove="MSBuild_Logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reloaded.Memory.Sigscan" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.198">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="NativeMethods.txt" />
+    <None Remove="NativeMethods.json" />
+    <AdditionalFiles Include="NativeMethods.txt" />
+    <AdditionalFiles Include="NativeMethods.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DirectPInvoke Include="detours" />
+    <NativeLibrary Include="$(ProjectDir)lib\win\$(Platform)\detours.lib" />
+    <NativeLibrary Include="$(ProjectDir)lib\win\x64\detours.lib" Condition="$(RuntimeIdentifier.StartsWith('win-x64'))" />
+    <DirectPInvoke Include="win32u" />
+    <NativeLibrary Include="$(ProjectDir)lib\win\x86\win32u.lib" Condition="$(RuntimeIdentifier.StartsWith('win-x86'))" />
+    <NativeLibrary Include="$(ProjectDir)lib\win\x64\win32u.lib" Condition="$(RuntimeIdentifier.StartsWith('win-x64'))" />
+    <DirectPInvoke Include="OpenCC" />
+    <NativeLibrary Include="$(ProjectDir)lib\win\x86\opencc.lib" Condition="$(RuntimeIdentifier.StartsWith('win-x86'))" />
+    <NativeLibrary Include="$(ProjectDir)lib\win\x64\opencc.lib" Condition="$(RuntimeIdentifier.StartsWith('win-x64'))" />
+    <DirectPInvoke Include="ntdll" />
+    <DirectPInvoke Include="kernel32" />
+    <DirectPInvoke Include="user32" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <LinkerArg Include="/merge:.detourc=.rdata /merge:.detourd=.data" />
+    <LinkerArg Include="/emittoolversioninfo:no" />
+	<LinkerArg Include="/emitpogophaseinfo" Condition="$(Configuration) == 'Release'" />
+    <LinkerArg Include="/nocoffgrpinfo" Condition="$(Configuration) == 'Release'" />
+    <LinkerArg Include="/pdbaltpath:%_PDB%" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(Platform) == 'x86'">
+    <LinkerArg Include="/largeaddressaware" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <IlcGenerateMstatFile>true</IlcGenerateMstatFile>
+    <IlcGenerateDgmlFile>true</IlcGenerateDgmlFile>
+  </PropertyGroup>
+
+</Project>

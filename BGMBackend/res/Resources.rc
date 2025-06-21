@@ -1,0 +1,99 @@
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English(United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_INVARIANT, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE
+BEGIN
+"#include ""winres.h""\r\n"
+"\0"
+END
+
+2 TEXTINCLUDE
+BEGIN
+"\r\n"
+"\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RCDATA
+//
+
+OPENCC_CONFIG_HK2S                    RCDATA                  "hk2s.json"
+OPENCC_CONFIG_HK2T                    RCDATA                  "hk2t.json"
+OPENCC_CONFIG_JP2T                    RCDATA                  "jp2t.json"
+OPENCC_CONFIG_S2HK                    RCDATA                  "s2hk.json"
+OPENCC_CONFIG_S2T                     RCDATA                  "s2t.json"
+OPENCC_CONFIG_S2TW                    RCDATA                  "s2tw.json"
+OPENCC_CONFIG_S2TWP                   RCDATA                  "s2twp.json"
+OPENCC_CONFIG_T2HK                    RCDATA                  "t2hk.json"
+OPENCC_CONFIG_T2JP                    RCDATA                  "t2jp.json"
+OPENCC_CONFIG_T2S                     RCDATA                  "t2s.json"
+OPENCC_CONFIG_T2TW                    RCDATA                  "t2tw.json"
+OPENCC_CONFIG_TW2S                    RCDATA                  "tw2s.json"
+OPENCC_CONFIG_TW2SP                   RCDATA                  "tw2sp.json"
+OPENCC_CONFIG_TW2T                    RCDATA                  "tw2t.json"
+
+OPENCC_DIC_HKVARIANTS                 RCDATA                  "HKVariants.ocd2"
+OPENCC_DIC_HKVARIANTSREV              RCDATA                  "HKVariantsRev.ocd2"
+OPENCC_DIC_HKVARIANTSREVPHRASES       RCDATA                  "HKVariantsRevPhrases.ocd2"
+OPENCC_DIC_JPSHINJITAICHARACTERS      RCDATA                  "JPShinjitaiCharacters.ocd2"
+OPENCC_DIC_JPSHINJITAIPHRASES         RCDATA                  "JPShinjitaiPhrases.ocd2"
+OPENCC_DIC_JPVARIANTS                 RCDATA                  "JPVariants.ocd2"
+OPENCC_DIC_JPVARIANTSREV              RCDATA                  "JPVariantsRev.ocd2"
+OPENCC_DIC_STCHARACTERS               RCDATA                  "STCharacters.ocd2"
+OPENCC_DIC_STPHRASES                  RCDATA                  "STPhrases.ocd2"
+OPENCC_DIC_TSCHARACTERS               RCDATA                  "TSCharacters.ocd2"
+OPENCC_DIC_TSPHRASES                  RCDATA                  "TSPhrases.ocd2"
+OPENCC_DIC_TWPHRASES                  RCDATA                  "TWPhrases.ocd2"
+OPENCC_DIC_TWPHRASESREV               RCDATA                  "TWPhrasesRev.ocd2"
+OPENCC_DIC_TWVARIANTS                 RCDATA                  "TWVariants.ocd2"
+OPENCC_DIC_TWVARIANTSREV              RCDATA                  "TWVariantsRev.ocd2"
+OPENCC_DIC_TWVARIANTSREVPHRASES       RCDATA                  "TWVariantsRevPhrases.ocd2"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+
+#endif    // English(United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
