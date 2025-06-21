@@ -68,8 +68,6 @@
     <DirectPInvoke Include="ntdll" />
     <DirectPInvoke Include="kernel32" />
     <DirectPInvoke Include="user32" />
-    <NativeLibrary Include="$(ProjectDir)lib\x64\InjectorNative.lib" Condition="$(Platform) == 'x64'" />
-    <DirectPInvoke Include="InjectorNative" Condition="$(Platform) == 'x64'" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,10 +82,10 @@
 
   <ItemGroup>
     <None Condition="$(Platform) == 'x64'" Include="$(SolutionDir)NativeAOT.Bootstrap.DLL\bin\x64\$(Configuration)\BGMBackend.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="$(SolutionDir)NativeAOT.Bootstrap.DLL\bin\win32\$(Configuration)\BGMBackend32.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
