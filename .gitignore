@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 **/MSBuild_Logs
 **/launchSettings.json
+**/NativeAOT_Rel*.lib
+**/NativeAOT_Rel*.exp
