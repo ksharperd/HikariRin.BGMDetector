@@ -75,9 +75,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <LinkerArg Include="/merge:.detourc=.rdata /merge:.detourd=.data" />
     <LinkerArg Include="/emittoolversioninfo:no" />
-	<LinkerArg Include="/emitpogophaseinfo" Condition="$(Configuration) == 'Release'" />
+    <LinkerArg Include="/emitpogophaseinfo" Condition="$(Configuration) == 'Release'" />
     <LinkerArg Include="/nocoffgrpinfo" Condition="$(Configuration) == 'Release'" />
     <LinkerArg Include="/pdbaltpath:%_PDB%" />
   </ItemGroup>
