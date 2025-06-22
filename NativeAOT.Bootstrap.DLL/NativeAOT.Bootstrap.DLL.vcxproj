@@ -117,7 +117,7 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>BGMBackend.lib;detours.lib;aotminipal.lib;zlibstatic.lib;brotlicommon.lib;brotlienc.lib;brotlidec.lib;bootstrapperdll.obj;Runtime.WorkstationGC.lib;eventpipe-disabled.lib;opencc.lib;marisa.lib;version.lib;Runtime.VxsortEnabled.lib;standalonegc-disabled.lib;System.Globalization.Native.Aot.lib;System.IO.Compression.Native.Aot.lib;ntdll.lib;bcrypt.lib;ncrypt.lib;crypt32.lib;win32u.lib;ws2_32.lib;Iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)BGMBackend\bin\$(Platform)\$(Configuration)\net10.0\win-$(Platform)\publish;$(SolutionDir)BGMBackend\lib\win\$(Platform);$(ProjectDir)lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>/emittoolversioninfo:no /NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/merge:.detourc=.rdata /merge:.detourd=.data /emittoolversioninfo:no /NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
       <ModuleDefinitionFile>$(ProjectDir)NativeAOT.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
@@ -140,7 +140,7 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>BGMBackend.lib;detours.lib;aotminipal.lib;zlibstatic.lib;brotlicommon.lib;brotlienc.lib;brotlidec.lib;bootstrapperdll.obj;Runtime.WorkstationGC.lib;eventpipe-disabled.lib;opencc.lib;marisa.lib;version.lib;standalonegc-disabled.lib;System.Globalization.Native.Aot.lib;System.IO.Compression.Native.Aot.lib;ntdll.lib;bcrypt.lib;ncrypt.lib;crypt32.lib;win32u.lib;ws2_32.lib;Iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)BGMBackend\bin\x86\$(Configuration)\net10.0\win-x86\publish;$(SolutionDir)BGMBackend\lib\win\x86;$(ProjectDir)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>/emittoolversioninfo:no /NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/merge:.detourc=.rdata /merge:.detourd=.data /emittoolversioninfo:no /NODEFAULTLIB:LIBCMTD.lib %(AdditionalOptions)</AdditionalOptions>
       <ModuleDefinitionFile>$(ProjectDir)NativeAOT.def</ModuleDefinitionFile>
       <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
       <LargeAddressAware>true</LargeAddressAware>
@@ -168,7 +168,7 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>BGMBackend.lib;detours.lib;aotminipal.lib;zlibstatic.lib;brotlicommon.lib;brotlienc.lib;brotlidec.lib;bootstrapperdll.obj;Runtime.WorkstationGC.lib;eventpipe-disabled.lib;opencc.lib;marisa.lib;version.lib;Iphlpapi.lib;Runtime.VxsortEnabled.lib;standalonegc-disabled.lib;System.Globalization.Native.Aot.lib;System.IO.Compression.Native.Aot.lib;ntdll.lib;bcrypt.lib;ncrypt.lib;crypt32.lib;win32u.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)BGMBackend\bin\$(Platform)\$(Configuration)\net10.0\win-$(Platform)\publish;$(SolutionDir)BGMBackend\lib\win\$(Platform);$(ProjectDir)lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>$(ProjectDir)NativeAOT_Rel.exp /emittoolversioninfo:no /NODEFAULTLIB:MSVCRT.lib /emitpogophaseinfo /pdbaltpath:%_PDB% %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/merge:.detourc=.rdata /merge:.detourd=.data $(ProjectDir)NativeAOT_Rel.exp /emittoolversioninfo:no /NODEFAULTLIB:MSVCRT.lib /emitpogophaseinfo /pdbaltpath:%_PDB% %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <PreLinkEvent>
       <Command>lib.exe /def:"$(ProjectDir)NativeAOT_Rel.def" /machine:x64</Command>
@@ -196,7 +196,7 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>BGMBackend.lib;detours.lib;aotminipal.lib;zlibstatic.lib;brotlicommon.lib;brotlienc.lib;brotlidec.lib;bootstrapperdll.obj;Runtime.WorkstationGC.lib;eventpipe-disabled.lib;opencc.lib;marisa.lib;version.lib;Iphlpapi.lib;standalonegc-disabled.lib;System.Globalization.Native.Aot.lib;System.IO.Compression.Native.Aot.lib;ntdll.lib;bcrypt.lib;ncrypt.lib;crypt32.lib;win32u.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)BGMBackend\bin\x86\$(Configuration)\net10.0\win-x86\publish;$(SolutionDir)BGMBackend\lib\win\x86;$(ProjectDir)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>$(ProjectDir)NativeAOT_Rel32.exp /emittoolversioninfo:no /NODEFAULTLIB:MSVCRT.lib /emitpogophaseinfo /pdbaltpath:%_PDB% %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/merge:.detourc=.rdata /merge:.detourd=.data $(ProjectDir)NativeAOT_Rel32.exp /emittoolversioninfo:no /NODEFAULTLIB:MSVCRT.lib /emitpogophaseinfo /pdbaltpath:%_PDB% %(AdditionalOptions)</AdditionalOptions>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PreLinkEvent>

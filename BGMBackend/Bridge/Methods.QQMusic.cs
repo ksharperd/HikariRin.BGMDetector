@@ -11,7 +11,12 @@ internal static unsafe partial class Methods
     {
         var result = ((delegate* unmanaged<nint, int*, int*, int>)HookManager.GetOriginRaw<QQMusicIQMPHostGetProgressAndDuration>())(@this, pTotalListenTime, pDuration);
 
-        Global.CurrentLength = *pDuration;
+        var duration = *pDuration;
+        if (duration != 0 && duration != Global.CurrentLength)
+        {
+            Global.CurrentLength = duration;
+            Log.Logger.Debug($"Setting duration to {duration}");
+        }
         Global.CurrentProgress = *pTotalListenTime;
 
         return result;
