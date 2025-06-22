@@ -21,7 +21,7 @@
 
   <PropertyGroup Condition="$(RuntimeIdentifier) == 'win-x86'">
     <Platform>x86</Platform>
-    <DefineConstants>BGMBACKEND_LEGACY_LYRIC_PARSER;$(DefineConstants)</DefineConstants>
+    <DefineConstants>$(DefineConstants)</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(Configuration) == 'Release'">

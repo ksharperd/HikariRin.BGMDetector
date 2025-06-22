@@ -35,6 +35,8 @@ internal static unsafe class Global
         get => _currentTitle;
         set
         {
+            if (_currentTitle == value)
+                return;
             _currentTitle = value;
             CurrentLyric = string.Empty;
             CurrentTsLyric = string.Empty;

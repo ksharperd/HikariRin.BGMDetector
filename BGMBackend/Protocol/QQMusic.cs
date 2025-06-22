@@ -161,14 +161,15 @@ internal sealed partial class QQMusic : BGMProtocol
         {
             title = title.Replace(".", "_");
             string[] array = title.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            if (array.Length != 2)
+            if (array.Length < 2)
             {
                 musicTitle = title;
                 singer = string.Empty;
                 return false;
             }
-            musicTitle = array[0];
-            singer = array[1];
+            var seg = new ArraySegment<string>(array, 0, array.Length - 1);
+            musicTitle = string.Concat(seg.AsSpan()!);
+            singer = array[^1];
             if (singer.IndexOf(',') > 0)
             {
                 singer = singer[..singer.IndexOf(',')];
